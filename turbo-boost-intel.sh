@@ -1,0 +1,16 @@
+#!/bin/sh
+
+ESTADO=$(cat /sys/devices/system/cpu/intel_pstate/no_turbo)
+	if [[ $ESTADO == "1" ]]; then
+		echo "turbo boost is off , do you wish to turn it on? (y/n): "
+		read ans
+		if [[ $ans == "y" ]]; then
+		echo -n "0" > /sys/devices/system/cpu/intel_pstate/no_turbo
+		fi
+	else
+		echo -n "1" > /sys/devices/system/cpu/intel_pstate/no_turbo
+		echo "intel's turbo boost has been disabled"
+	fi
+
+
+
