@@ -6,11 +6,11 @@ ESTADO=$(cat /sys/devices/system/cpu/intel_pstate/no_turbo)
 		read ans
 		if [[ $ans == "y" ]]; then
 		echo -n "0" > /sys/devices/system/cpu/intel_pstate/no_turbo
-		echo -n "100" > /sys/devices/system/cpu/intel_pstate/max_perf_pct
+		echo -n "80" > /sys/devices/system/cpu/intel_pstate/max_perf_pct
 		fi
 	else
 		echo -n "1" > /sys/devices/system/cpu/intel_pstate/no_turbo
-		echo -n "99" > /sys/devices/system/cpu/intel_pstate/max_perf_pct
+		echo -n "60" > /sys/devices/system/cpu/intel_pstate/max_perf_pct
 		echo "intel's turbo boost has been disabled"
 	fi
 
